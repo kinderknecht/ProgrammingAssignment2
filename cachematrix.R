@@ -1,7 +1,8 @@
-## Put comments here that give an overall description of what your
-## functions do
+##The following programs will take an invertible matrix and return its inverse.  If the inverse has not been calculated before, these functions will calculate and store it;
+##if it has been calculated previously, the functions will locate and return the stored inverse.
 
-## Write a short comment describing this function
+## makeCacheMatrix will create a special "matrix," which is a list that contains funtions to set and retrieve the value of the matrix and to set and retrieve the value of the inverse.
+
 
 makeCacheMatrix <- function(x = matrix()) {			#the input is an invertible matrix (non-invertible matrix will return an error)
         inv <- NULL							#define 'inv' to be used later as the inverse of x matrix (will be reset to NULL every time makeCacheMatrix is called)
@@ -18,7 +19,9 @@ makeCacheMatrix <- function(x = matrix()) {			#the input is an invertible matrix
 }
 
 
-## Write a short comment describing this function
+## cacheSolve calculates the inverse of the special "matrix" created by makeCacheMatrix.  It first checks to see if the inverse has already been calculated; if so,
+## it does not recalculate it, but it retrieves the stored inverse and returns it.  If the inverse has not been calculated, it calculates it, stores it in the cache,
+## and returns it.
 
 cacheSolve <- function(x, ...) {			#the input is an object created by makeCacheMatrix
         inv <- x$getinverse()				#accesses the object 'x' and gets the value of the inverse
